@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[type="email"], input[type="password"], input[type="tel"],
+input[type="text"], input[type="number"], textarea {
+    @apply border w-full my-1 rounded-lg p-2
+}
+input[type="date"] {
+    @apply my-1 w-full
+}
+textarea {
+    height: 120px;
+}
