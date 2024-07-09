@@ -3,6 +3,7 @@ import { differenceInCalendarDays } from 'date-fns'
 import axios from "axios"
 import { Navigate } from "react-router-dom";
 import { userContext } from "../../context"
+import { toast } from "react-toastify";
 
 const BookingCard = ({ place }) => {
     const {user} = useContext(userContext)
@@ -39,6 +40,11 @@ const BookingCard = ({ place }) => {
     }
 
     const bookThisPlace = async () => {
+        if (!user) {
+            setRedirect('/')
+            toast.info("You have to be logged in")
+            return
+        }
         await axios.post('/bookings',
             { ...booking, place:place._id, user:user.userId, price: (numberOfNights * place.price) + (0.1 * (numberOfNights * place.price)) }
         )

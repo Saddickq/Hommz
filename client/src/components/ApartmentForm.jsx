@@ -63,10 +63,10 @@ const ApartmentForm = () => {
         event.preventDefault()
         if (id) {
             await axios.put("/places/" + id, formData)
-            toast.info("Your place has been updated successfully")
+            toast.success("Your place has been updated successfully")
         } else {
             await axios.post("/new_place", formData)
-            toast.info("Your place has been added successfully")
+            toast.success("Your place has been added successfully")
         }
         setRedirect(true)
     }

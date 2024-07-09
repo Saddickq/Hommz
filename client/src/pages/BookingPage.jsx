@@ -28,8 +28,8 @@ const BookingPage = () => {
         return ""
     }
 
-    const cancleReservation = () => {
-        axios.delete(`/bookings/${id}`)
+    const cancleReservation = async () => {
+        await axios.delete(`/bookings/${id}`)
         setRedirection("/")
         toast.info("You have cancelled your reservation")
     }
@@ -50,8 +50,8 @@ const BookingPage = () => {
             <div className="">
                 <h2 className="text-xl font-semibold">Your booking Information:</h2>
                 <div className="flex gap-4 items-center my-3">
-                    <FaRegCalendarAlt className="size-7" />{
-                    format(booking.checkIn, "yyyy-MM-dd")} &rarr; 
+                    <FaRegCalendarAlt className="size-7" />
+                    {format(booking.checkIn, "yyyy-MM-dd")} &rarr; 
                     <FaRegCalendarAlt className="size-7" />
                     {format(booking.checkOut, "yyyy-MM-dd")}<br />
                 </div>
