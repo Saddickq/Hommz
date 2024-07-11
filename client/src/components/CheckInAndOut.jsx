@@ -19,7 +19,7 @@ const CheckInAndOut = ({ handleChange, checkIn, checkOut, maxGuests, price }) =>
                     placeholder="06:00" />
             </div>
             <div>
-                <span className="text-primary text-l font-bold">Max number of guest</span>
+                <span className="text-primary text-l font-bold">Number of guest</span>
                 <input type="number"
                     value={maxGuests}
                     name="maxGuests"

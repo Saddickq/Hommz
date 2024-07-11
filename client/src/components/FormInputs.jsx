@@ -16,6 +16,7 @@ const FormInputs = ({ formData, handleChange, authType, setShowAuth }) => {
                 value={formData.username}
                 onChange={handleChange}
                 placeholder="John Doe"
+                required
             />
         )}
         <input
@@ -24,6 +25,7 @@ const FormInputs = ({ formData, handleChange, authType, setShowAuth }) => {
             value={formData.email}
             name="email"
             onChange={handleChange}
+            required
         />
         <input
             type="password"
@@ -31,6 +33,7 @@ const FormInputs = ({ formData, handleChange, authType, setShowAuth }) => {
             value={formData.password}
             name="password"
             onChange={handleChange}
+            required
         />
         {authType==="Register" && (
             <input
@@ -39,6 +42,7 @@ const FormInputs = ({ formData, handleChange, authType, setShowAuth }) => {
                 value={formData.confirm_password}
                 onChange={handleChange}
                 placeholder="Confirm password"
+                required
             />
         )}
     </div>

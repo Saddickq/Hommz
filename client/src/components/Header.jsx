@@ -20,11 +20,9 @@ const Header = ({ setShowAuth }) => {
                     <div className="flex sm:hidden gap-4 items-center ">
                         {!!user
                             ? 
-                            <Link to="/account" className="flex items-center gap-1 border border-gray-300 rounded-full py-2 px-2 hover:shadow-md">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="md:w-6 md:h-6 w-4 h-4">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                                </svg>
-                                <FaCircleUser className="size-6 text-slate-600" />
+                            <Link to="/account" className="flex items-center gap-1 bg-primary text-white rounded-full py-2 px-2 hover:shadow-md">
+                                <RxHamburgerMenu className="size-4 md:size-6" />
+                                <FaCircleUser className="size-6" />
                                 <div className="text-sm md:text-base">{user.username.split(' ')?.[0]}</div>
                             </Link>
                             :
@@ -33,7 +31,7 @@ const Header = ({ setShowAuth }) => {
                     </div>
                 </div>
                 <div className="flex items-center gap-4 border shadow rounded-full p-1 cursor-pointer hover:shadow-md mt-2 md:mt-0 w-70">
-                    <input placeholder="Search " className="outline-none px-4 w-full" />
+                    <input placeholder="Search " className="outline-none px-4" />
                     <button className="bg-primary rounded-full p-2 m-1 md:m-0 text-white">
                         <IoSearchSharp className="size-4 md:size-5" /> 
                     </button>
@@ -41,7 +39,7 @@ const Header = ({ setShowAuth }) => {
                 <div className="hidden sm:flex gap-4 md:gap-8 items-center">
                     {!!user
                         ? 
-                        <Link to="/account" className="flex items-center gap-1 bg-primary text-white rounded-full py-1 px-2 hover:shadow-md">
+                        <Link to="/account" className="flex items-center gap-1 bg-primary text-white rounded-full p-2 hover:shadow-md">
                             <RxHamburgerMenu className="size-4 md:size-6" />
                             <FaCircleUser className="size-7" />
                             <div className="text-sm md:text-base">{user.username.split(' ')?.[0]}</div>

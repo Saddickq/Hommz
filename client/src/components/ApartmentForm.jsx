@@ -76,7 +76,6 @@ const ApartmentForm = () => {
                 });
                 uploadedPhotos = data.files;
             }
-    
             const allPhotos = [
                 ...formData.photos.filter(photo => typeof photo === 'string'),
                 ...uploadedPhotos,
@@ -90,7 +89,6 @@ const ApartmentForm = () => {
                 await axios.put(`/places/${id}`, formDataWithPhotoURLs);
                 toast.success('Your place has been updated successfully');
             } else {
-                console.log(formDataWithPhotoURLs)
                 await axios.post('/new_place', formDataWithPhotoURLs);
                 toast.success('Your place has been added successfully');
             }
@@ -150,7 +148,7 @@ const ApartmentForm = () => {
             maxGuests={formData.maxGuests}
             price={formData.price}
         />    
-        <div className="cursor-pointer text-center bg-primary p-2 my-5 rounded-xl">
+        <div className="cursor-pointer text-center bg-primary hover:opacity-80 p-2 my-5 rounded-xl">
             <button className="text-white font-bold">Save</button>
         </div>
     </form>
