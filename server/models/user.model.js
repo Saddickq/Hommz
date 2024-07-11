@@ -1,18 +1,31 @@
 import { Schema, model } from "mongoose";
 
 const UserSchema = Schema(
-    {
-        username: { type: String, required: true },
-        email: { type: String, unique: true, required: true },
-        password: { type: String, required: true },
-        googleId: { type: String, unique: true },
-        avatar: { type: String }
+  {
+    username: {
+      type: String,
+      trim: true,
+      required: true,
     },
-    {
-        timestamps: true
-    }
+    email: {
+      type: String,
+      trim: true,
+      match: [/.+\@.+\..+/, 'Please provide a valid email address'],
+      unique: true,
+      required: true,
+    },
+    password: {
+      type: String,
+      required: true,
+      minlength: [6, 'Password must be at least 6 characters long']
+    },
+    avatar: { type: String },
+  },
+  {
+    timestamps: true,
+  }
 );
 
-const User = model("user", UserSchema)
+const User = model("user", UserSchema);
 
 export default User;

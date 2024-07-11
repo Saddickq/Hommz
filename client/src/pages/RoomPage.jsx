@@ -31,19 +31,19 @@ const RoomPage = () => {
             </div>
 
             <PlaceGallery place={place} />
-            <h2 className="text-2xl text-gray-800 font-semibold mt-4">Room in {place.address}</h2>
+            <h2 className="text-xl sm:text-2xl text-gray-800 font-semibold mt-4">Room in {place.address}</h2>
                 
 	        <div className="py-8 flex flex-col sm:flex-row gap-8">
                 <div className="border-t border-gray-300">
-                    <h3 className="text-xl my-6 text-gray-800 font-semibold">About this place</h3>
-                    <p className="text-gray-600">{place.description}</p>
+                    <h3 className="text-lg sm:text-xl my-6 text-gray-800 font-semibold">About this place</h3>
+                    <p className="text-gray-600 text-sm sm:text-base">{place.description}</p>
                 </div>
                 <BookingCard place={place} />
 	        </div>
             <PlaceInfo place={place} />
             <div className="mb-6 border-gray-300">
                 <h3 className="text-xl my-5 text-gray-800 font-semibold">Extra Info</h3>
-                <p className="text-gray-600">{place.extraInfo}</p>
+                <p className="text-gray-600 text-sm sm:text-base">{place.extraInfo}</p>
             </div>
             <div>
                 <h2 className="border-t py-6 border-gray-300 text-xl text-gray-800 font-semibold">Meet the host</h2>

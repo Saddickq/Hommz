@@ -1,9 +1,9 @@
 const PlaceInfo = ({ place }) => {
   return (
     <div>
-        <h3 className="border-t py-6 border-gray-300 text-xl text-gray-800 font-semibold">Things to know</h3>
-        <div className="flex gap-32">
-            <div>
+        <h3 className="border-t py-6 border-gray-300 text-lg sm:text-xl text-gray-800 font-semibold">Things to know</h3>
+        <div className="flex gap-16 sm:gap-32">
+            <div className="text-sm sm:text-base">
                 <h3 className="font-semibold text-gray-800 mb-2">What this place offers</h3>
                 <div>
                     {place?.perks?.map(perk => {
@@ -15,7 +15,7 @@ const PlaceInfo = ({ place }) => {
                     })}
                 </div>
             </div>
-            <div>
+            <div className="text-sm sm:text-base">
                 <h4 className="font-semibold text-gray-800 mb-2">House rules</h4>
                 <div className="text-gray-600 leading-7">Check-in after {place.checkIn}</div>
                 <div className="text-gray-600 leading-7">Checkout before {place.checkOut}</div>

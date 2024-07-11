@@ -48,20 +48,20 @@ const BookingPage = () => {
         </div>
         <div className="flex items-center justify-between my-4 bg-gray-300 p-2 sm:p-4 rounded-2xl">
             <div className="">
-                <h2 className="text-xl font-semibold">Your booking Information:</h2>
-                <div className="flex gap-4 items-center my-3">
-                    <FaRegCalendarAlt className="size-7" />
+                <h2 className="sm:text-xl font-semibold">Your booking Information:</h2>
+                <div className="flex text-sm sm:text-base gap-2 sm:gap-4 items-center my-3">
+                    <FaRegCalendarAlt className="size-4 sm:size-7" />
                     {format(booking.checkIn, "yyyy-MM-dd")} &rarr; 
-                    <FaRegCalendarAlt className="size-7" />
+                    <FaRegCalendarAlt className="size-4 sm:size-7" />
                     {format(booking.checkOut, "yyyy-MM-dd")}<br />
                 </div>
-                <div className="flex items-center gap-4 ">
-                    <MdNightlightRound className="size-7" />{differenceInCalendarDays(new Date(booking.checkOut), new Date(booking.checkIn))} nights  
-                    <span className="flex gap-3 text-primary font-semibold"><IoPricetagsOutline className="size-7" />Price: GH¢ {booking.price}</span>
+                <div className="flex items-center gap-2 sm:gap-4 ">
+                    <MdNightlightRound className="size-4 sm:size-7" />{differenceInCalendarDays(new Date(booking.checkOut), new Date(booking.checkIn))} nights  
+                    <span className="flex gap-1 sm:gap-3 text-primary font-semibold"><IoPricetagsOutline className="size-6 sm:size-7" />Price: GH¢ {booking.price}</span>
                 </div>
             </div>
             <button onClick={cancleReservation} className="bg-primary text-white p-2 sm:p-3 rounded-xl font-bold">
-                Cancel Reservation
+                Cancel
             </button>
         </div>
         

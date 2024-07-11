@@ -22,9 +22,9 @@ const BookingsPage = () => {
                     return (
                         <div key={booking._id} className="bg-gray-300 mb-4 rounded-xl overflow-hidden max-w-3xl mx-auto">
                             <Link to={`/account/bookings/${booking._id}`}  className="flex flex-col gap-2 sm:flex-row">
-                                <img src={"http://localhost:8000/uploads/" + booking.place.photos[0]} alt="Photo" className="object-cover h-32" />
-                    	        <div className="p-2">
-                                    <h2 className="py-1 font-semibold">{booking.place.title}</h2>
+                                <img src={booking.place.photos[0]} alt="Photo" className="object-cover  h-36" />
+                    	        <div className="p-2 place-self-center">
+                                    <h2 className="font-semibold sm:text-xl text-primary">{booking.place.title}</h2>
                                     <div className="flex gap-2 items-center my-2">
                                         <FaRegCalendarAlt className="size-6" />{
                                         format(booking.checkIn, "yyyy-MM-dd")} &rarr; 

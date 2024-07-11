@@ -10,7 +10,7 @@ const ShowAllPhotos = ({ place, setShowAllPhotos }) => {
             {place?.photos?.length && place.photos.map(photo => {
                 return (
                     <div key={photo}>
-                        <img className="w-full md:max-h-96 mx-auto object-contain" src={"http://localhost:8000/uploads/" + photo} alt="Photos" />
+                        <img className="w-full md:max-h-96 mx-auto object-contain" src={photo} alt="Photos" />
                     </div>
                 )
             })}

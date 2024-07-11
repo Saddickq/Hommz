@@ -39,8 +39,8 @@ const PlacesPage = () => {
             <div className="mt-5 mx-auto max-w-5xl">
                 {places.length > 0 && places.map(place => {
                     return (
-                        <div key={place._id} className="flex flex-col sm:flex-row bg-gray-300 mb-4 cursor-pointer gap-2 p-2  rounded-2xl">
-                            <img src={"http://localhost:8000/uploads/" + place.photos[0]} alt="Photo" className="rounded-2xl object-cover sm:w-36" />
+                        <div key={place._id} className="flex flex-col sm:flex-row bg-gray-300 mb-4 cursor-pointer gap-2 p-2 rounded-2xl">
+                            <img src={place.photos[0]} alt="Photo" className="rounded-2xl object-cover sm:w-36" />
                             <div className="">
                                 <Link to={"/account/places/" + place._id}>
                                     <h2 className="text-base md:text-lg font-semibold text-start">{place.title}</h2>
