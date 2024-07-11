@@ -18,7 +18,7 @@ class PlacesController {
     try {
       const formData = req.body;
       const { token } = req.cookies;
-
+      
       const user = jwt.verify(token, SECRET);
 
       const newPlace = await Place.create({
@@ -30,27 +30,11 @@ class PlacesController {
       return res.status(404).json(error.message);
     }
   }
-  static async showAllPlaces(req, res) {
-    try {
-      const places = await Place.find();
-      return res.status(200).json(places);
-    } catch (error) {
-      return res.status(404).json(error.message);
-    }
-  }
-  static async showPlace(req, res) {
-    try {
-      const { id } = req.params;
-      const place = await Place.findById(id);
-      return res.status(200).json(place);
-    } catch (error) {
-      return res.status(404).json(error.message);
-    }
-  }
   static async updatePlace(req, res) {
     try {
       const { id } = req.params;
       const { token } = req.cookies;
+      
       const {
         title,
         description,
@@ -63,6 +47,8 @@ class PlacesController {
         maxGuests,
         price,
       } = req.body;
+
+      console.log(photos)
 
       const user = await jwt.verify(token, SECRET);
       const place = await Place.findById(id);
@@ -89,6 +75,23 @@ class PlacesController {
         .json({ message: "You are not authorized to update this place" });
     } catch (error) {
       return res.status(400).json(error.message);
+    }
+  }
+  static async showAllPlaces(req, res) {
+    try {
+      const places = await Place.find();
+      return res.status(200).json(places);
+    } catch (error) {
+      return res.status(404).json(error.message);
+    }
+  }
+  static async showPlace(req, res) {
+    try {
+      const { id } = req.params;
+      const place = await Place.findById(id);
+      return res.status(200).json(place);
+    } catch (error) {
+      return res.status(404).json(error.message);
     }
   }
   static async deletePlace(req, res) {
