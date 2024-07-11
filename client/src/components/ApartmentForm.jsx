@@ -61,15 +61,45 @@ const ApartmentForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-        if (id) {
-            await axios.put("/places/" + id, formData)
-            toast.success("Your place has been updated successfully")
-        } else {
-            await axios.post("/new_place", formData)
-            toast.success("Your place has been added successfully")
+        const photoData = new FormData();
+
+        formData.photos.forEach((photo) => {
+            photoData.append('photos', photo);
+        });
+        try {
+            let uploadedPhotos = [];
+
+            // Only upload if there are new photos
+            if (photoData.has('photos')) {
+                const { data } = await axios.post('/upload', photoData, {
+                    headers: { 'Content-Type': 'multipart/form-data' },
+                });
+                uploadedPhotos = data.files;
+            }
+    
+            const allPhotos = [
+                ...formData.photos.filter(photo => typeof photo === 'string'),
+                ...uploadedPhotos,
+            ];
+
+            const formDataWithPhotoURLs = {
+                ...formData,
+                photos: allPhotos,
+            };
+            if (id) {
+                await axios.put(`/places/${id}`, formDataWithPhotoURLs);
+                toast.success('Your place has been updated successfully');
+            } else {
+                console.log(formDataWithPhotoURLs)
+                await axios.post('/new_place', formDataWithPhotoURLs);
+                toast.success('Your place has been added successfully');
+            }
+            setRedirect(true);
+        } catch (error) {
+            toast.error('Something went wrong. Please try again.');
+            console.error(error);
         }
-        setRedirect(true)
-    }
+    };
 
     if (redirect) {
         return <Navigate to={"/account/places"} />

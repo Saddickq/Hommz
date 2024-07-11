@@ -20,7 +20,7 @@ const Header = ({ setShowAuth }) => {
                     <div className="flex sm:hidden gap-4 items-center ">
                         {!!user
                             ? 
-                            <Link to="/account" className="flex items-center gap-1 border border-gray-300 rounded-full py-1 px-2 hover:shadow-md">
+                            <Link to="/account" className="flex items-center gap-1 border border-gray-300 rounded-full py-2 px-2 hover:shadow-md">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="md:w-6 md:h-6 w-4 h-4">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                                 </svg>
@@ -28,7 +28,7 @@ const Header = ({ setShowAuth }) => {
                                 <div className="text-sm md:text-base">{user.username.split(' ')?.[0]}</div>
                             </Link>
                             :
-                            <button onClick={()=>setShowAuth(true)} className="rounded-full shadow bg-primary hover:opacity-80 text-white text-sm md:text-base py-2 px-4">Sign In</button>
+                            <button onClick={()=>setShowAuth(true)} className="rounded-full bg-primary hover:opacity-80 text-white text-sm md:text-base py-2 px-4">Sign In</button>
                         }
                     </div>
                 </div>
@@ -47,7 +47,7 @@ const Header = ({ setShowAuth }) => {
                             <div className="text-sm md:text-base">{user.username.split(' ')?.[0]}</div>
                         </Link>
                         :
-                        <button onClick={()=>setShowAuth(true)} className="bg-primary shadow hover:opacity-80 text-white rounded-full text-sm md:text-base font-semibold py-2 px-4">Sign In</button>
+                        <button onClick={()=>setShowAuth(true)} className="bg-primary hover:opacity-80 text-white rounded-full text-sm md:text-base font-semibold py-2 px-4">Sign In</button>
                     }
                 </div>
             </div>

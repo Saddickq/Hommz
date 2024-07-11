@@ -4,10 +4,17 @@ import jwt from "jsonwebtoken"
 
 class BookingsController {
   static createBooking(req, res) {
-    const { checkIn, checkOut, name, phone, place, price, user } = req.body;
-    Booking.create({ checkIn, checkOut, name, phone, place, price, user })
-      .then((booking) => res.status(201).json(booking))
-      .catch((err) => res.status(500).json(err));
+    const { checkIn, checkOut, name, phone, place, price } = req.body;
+    const { token } = req.cookies;
+
+    if (token) {
+        const user = jwt.verify(token, SECRET);
+        Booking.create({ checkIn, checkOut, name, phone, place, price, user:user.userId })
+          .then((booking) => res.status(201).json(booking))
+          .catch((err) => res.status(500).json(err));
+    }
+    return res.status(404)
+
   }
   
   static async showBookings(req, res) {
@@ -29,7 +36,7 @@ class BookingsController {
         if (!user) {
             return res.status(404)
         }
-        const booking = await Booking.findByIdAndDelete(id)
+        await Booking.findByIdAndDelete(id)
         return res.status(200)
     } catch (error) {
         return res.status(500).json(error.message)

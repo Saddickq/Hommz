@@ -46,7 +46,7 @@ const BookingCard = ({ place }) => {
             return
         }
         await axios.post('/bookings',
-            { ...booking, place:place._id, user:user.userId, price: (numberOfNights * place.price) + (0.1 * (numberOfNights * place.price)) }
+            { ...booking, place:place._id, price: (numberOfNights * place.price) + (0.1 * (numberOfNights * place.price)) }
         )
         setRedirect("/account/bookings")
     }
