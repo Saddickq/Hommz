@@ -26,7 +26,7 @@ const RoomPage = () => {
 	    <div className="bg-gray-100 -mx-8 lg:px-32 px-8">
 	        <h2 className="text-2xl text-gray-800 py-6 font-semibold">{place.title}</h2>
             <div className="flex gap-2 underline text-gray-700 font-semibold">
-                <FaMapLocationDot className="size-7" />
+                <FaMapLocationDot className="size-7 animate-bounce" />
                 <a target={"_blank"} href={`https://maps.google.com/?q=${place.address}`}>{place.address}</a>
             </div>
 
