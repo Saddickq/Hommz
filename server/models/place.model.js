@@ -4,7 +4,7 @@ const PlaceSchema = Schema(
     {
         owner: {
             type: Schema.Types.ObjectId,
-            ref: 'User',
+            ref: 'Users',
             required: true
         },
         title: {
@@ -35,6 +35,6 @@ const PlaceSchema = Schema(
     }
 )
 
-const Place = model("Place", PlaceSchema)
+const Place = model("Places", PlaceSchema)
 
 export default Place;

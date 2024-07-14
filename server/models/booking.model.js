@@ -4,12 +4,12 @@ const BookingSchema = Schema(
     {
         place: {
             type: Schema.Types.ObjectId,
-            ref: "Place",
+            ref: "Places",
             required: true
         },
         user: {
             type: Schema.Types.ObjectId,
-            ref: "User",
+            ref: "Users",
             required: true
         },
         name: {
