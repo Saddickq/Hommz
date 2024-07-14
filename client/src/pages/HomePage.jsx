@@ -28,21 +28,21 @@ const HomePage = () => {
                 Array.from({ length: 6 }).map((_, index) => (
                     <div className="cursor-pointer animate-pulse" key={index}>
                         <div className="flex flex-col">
-                            <div className="bg-gray-300 rounded-lg aspect-square"></div>
-                            <h2 className="bg-gray-300 h-4 rounded mt-2"></h2>
-                            <h3 className="bg-gray-300 h-4 rounded mt-2 w-3/4"></h3>
-                            <h4 className="bg-gray-300 h-4 rounded mt-2 w-1/2"></h4>
+                            <div className="bg-gray-300 rounded-lg h-44 sm:h-64"></div>
+                            <h2 className="bg-gray-300 h-3 rounded mt-2"></h2>
+                            <h3 className="bg-gray-300 h-3 rounded mt-2 w-3/4"></h3>
+                            <h4 className="bg-gray-300 h-3 rounded mt-2 w-1/2"></h4>
                         </div>
                     </div>
                 ))
             ) : (
                 places.length > 0 && places.map(place => (
                     <Link to={"/place/" + place._id} className="cursor-pointer" key={place._id}>
-                        <div className="flex flex-col">
-                            <img className="rounded-lg object-cover aspect-square" src={place.photos[0]} alt="Photo" />
-                            <h2 className="font-bold leading-4 text-sm md:text-l text-gray-900 mt-2">{place.address}</h2>
-                            <h3 className="text-xs sm:text-sm md:text-base">{place.title}</h3>
-                            <h4 className="font-bold text-primary text-sm md:text-l">¢{place.price} Per night</h4>
+                        <div className="flex rounded-lg flex-col">
+                            <img className="rounded-lg mb-2 object-cover h-44 sm:h-64" src={place.photos[0]} alt="Photo" />
+                            <h2 className="font-bold  text-sm sm:tex-l text-gray-900">{place.address}</h2>
+                            <h3 className="text-sm">Hosted by {place.owner.username}</h3>
+                            <h4 className="font-bold text-primary text-sm sm:tex-l">¢{place.price} Per night</h4>
                         </div>
                     </Link>
                 )))

@@ -21,7 +21,7 @@ const PhotoUploader = ({ photos, onPhotoChange }) => {
     }
     const getImage = (photo) => {
         const isFile = photo instanceof File
-        return isFile ? URL.createObjectURL(photo) : `http://localhost:8000/uploads/${photo}`
+        return isFile ? URL.createObjectURL(photo) : photo
     }
 
     //Remove photo from List of photos

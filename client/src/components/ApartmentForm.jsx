@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react'
 import AvailablePerks from "./AvailablePerks"
 import PhotoUploader from "./PhotoUploader"
 import CheckInAndOut from "./CheckInAndOut"
+import Loading from './skeletons/Loading'
 import axios from 'axios'
 import { Navigate, useParams } from "react-router-dom"
 import { toast } from 'react-toastify'
 
 const ApartmentForm = () => {
     const [redirect, setRedirect] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
 
     const [formData, setFormData] = useState({
         title: '',
@@ -61,29 +63,28 @@ const ApartmentForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-        const photoData = new FormData();
+        setIsLoading(true)
 
-        formData.photos.forEach((photo) => {
+        const newPhotos = formData.photos.filter(photo => typeof photo !== 'string');
+        const existingPhotos = formData.photos.filter(photo => typeof photo === 'string');
+        
+        const photoData = new FormData();
+        newPhotos.forEach(photo => {
             photoData.append('photos', photo);
         });
+        
         try {
             let uploadedPhotos = [];
-
             // Only upload if there are new photos
-            if (photoData.has('photos')) {
+            if (newPhotos.length > 0) {
                 const { data } = await axios.post('/upload', photoData, {
                     headers: { 'Content-Type': 'multipart/form-data' },
                 });
                 uploadedPhotos = data.files;
             }
-            const allPhotos = [
-                ...formData.photos.filter(photo => typeof photo === 'string'),
-                ...uploadedPhotos,
-            ];
-
             const formDataWithPhotoURLs = {
                 ...formData,
-                photos: allPhotos,
+                photos: [ ...existingPhotos, ...uploadedPhotos ],
             };
             if (id) {
                 await axios.put(`/places/${id}`, formDataWithPhotoURLs);
@@ -96,9 +97,14 @@ const ApartmentForm = () => {
         } catch (error) {
             toast.error('Something went wrong. Please try again.');
             console.error(error);
+        } finally {
+            setIsLoading(false)
         }
     };
 
+    if (isLoading) {
+        return <Loading />
+    }
     if (redirect) {
         return <Navigate to={"/account/places"} />
     }

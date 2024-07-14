@@ -2,10 +2,12 @@ import { Link } from "react-router-dom"
 import AccountNav from "../components/AccountNav"
 import { useState, useEffect } from "react"
 import axios from "axios";
+import Loading from "../components/skeletons/Loading";
 
 
 const PlacesPage = () => {
     const [places, setPlaces] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
         async function fetchPlaces() {
@@ -16,15 +18,20 @@ const PlacesPage = () => {
     }, [])
 
     const deletePlace = async (placeId) => {
+        setIsLoading(true)
         try {
             const response = await axios.delete(`/places/${placeId}`);
             const deletedPlace = response.data;
-    
             setPlaces(prevPlaces => prevPlaces.filter(place => place._id !== deletedPlace._id));
         } catch (error) {
             console.error("Error deleting place:", error);
+        } finally {
+            setIsLoading(false)
         }
     };
+    if (isLoading) {
+        return <Loading />
+    }
 
   return (
     <div>
@@ -39,7 +46,7 @@ const PlacesPage = () => {
             <div className="mt-5 mx-auto max-w-5xl">
                 {places.length > 0 && places.map(place => {
                     return (
-                        <div key={place._id} className="flex flex-col sm:flex-row bg-gray-300 mb-4 cursor-pointer gap-2 p-2 rounded-2xl">
+                        <div key={place._id} className="flex flex-col sm:flex-row w-full bg-gray-300 mb-4 cursor-pointer gap-2 p-2 rounded-2xl">
                             <img src={place.photos[0]} alt="Photo" className="rounded-2xl object-cover sm:w-36" />
                             <div className="">
                                 <Link to={"/account/places/" + place._id}>

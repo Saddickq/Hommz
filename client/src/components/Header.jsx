@@ -1,7 +1,6 @@
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { userContext } from "../../context"
-import { FaCircleUser } from "react-icons/fa6";
 import { IoSearchSharp } from "react-icons/io5";
 import { RxHamburgerMenu } from "react-icons/rx";
 
@@ -18,11 +17,11 @@ const Header = ({ setShowAuth }) => {
                         <span className="text-xl md:text-2xl text-primary font-bold"><span className="text-2xl md:text-3xl">H</span>omm<span className="text-2xl md:text-3xl">z</span></span>
                     </Link>
                     <div className="flex sm:hidden gap-4 items-center ">
-                        {!!user
+                        {user
                             ? 
                             <Link to="/account" className="flex items-center gap-1 bg-primary text-white rounded-full py-2 px-2 hover:shadow-md">
                                 <RxHamburgerMenu className="size-4 md:size-6" />
-                                <FaCircleUser className="size-6" />
+                                <img className="size-4 md:size-8 rounded-full" src={user.avatar} />
                                 <div className="text-sm md:text-base">{user.username.split(' ')?.[0]}</div>
                             </Link>
                             :
@@ -37,11 +36,11 @@ const Header = ({ setShowAuth }) => {
                     </button>
                 </div>
                 <div className="hidden sm:flex gap-4 md:gap-8 items-center">
-                    {!!user
+                    {user
                         ? 
                         <Link to="/account" className="flex items-center gap-1 bg-primary text-white rounded-full p-2 hover:shadow-md">
                             <RxHamburgerMenu className="size-4 md:size-6" />
-                            <FaCircleUser className="size-7" />
+                            <img className="size-4 md:size-8 rounded-full" src={user.avatar} />
                             <div className="text-sm md:text-base">{user.username.split(' ')?.[0]}</div>
                         </Link>
                         :

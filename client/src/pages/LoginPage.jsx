@@ -76,7 +76,7 @@ const Login = ({ setShowAuth }) => {
             <div className="flex flex-col shadow-md rounded-2xl place-self-center p-8 bg-white w-full max-w-md animate-fadeIn">
                 <form onSubmit={authType==="Login" ? handleLogin : handleRegister}>
                     <FormInputs formData={formData} handleChange={handleChange} authType={authType} setShowAuth={setShowAuth} />
-                    <button className="bg-primary py-2 my-4 w-full text-white font-bold rounded-xl">{authType}</button>
+                    <button className="bg-primary text-white rounded-lg w-full py-2 font-bold my-4 outline outline-1 focus:outline-offset-2 outline-primary hover:opacity-80">{authType}</button>
                 </form>
                 {/* <GoogleAuth /> */}
                 {authType==="Login"

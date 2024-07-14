@@ -21,6 +21,12 @@ const PlaceInfo = ({ place }) => {
                 <div className="text-gray-600 leading-7">Checkout before {place.checkOut}</div>
                 <div className="text-gray-600 leading-7">{place.maxGuests} Maxs Guests</div>
             </div>
+            <div className="text-sm sm:text-base">
+                <h2 className="font-semibold text-gray-800 mb-2">Meet the host</h2>
+                <img src={place.owner.avatar} className="rounded-full mb-4 border border-gray-400 size-20" />
+                <h4 className="font-semibold text-gray-800 mb-2">{place.owner.username}</h4>
+                <h4 className="text-gray-600 leading-7">{place.owner.email}</h4>
+            </div>
         </div>
     </div>
   )

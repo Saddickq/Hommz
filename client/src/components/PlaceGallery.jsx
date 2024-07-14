@@ -12,7 +12,7 @@ const PlaceGallery = ({ place }) => {
         )
     }
   return (
-    <div className=" mt-4">
+    <div className=" mt-4 animate-fade-in">
         <div className="grid overflow-hidden cursor-pointer rounded-2xl gap-2 grid-cols-[2fr_1fr]">
             <div className="h-96" onClick={() => setShowAllPhotos(true)}>
                 {place.photos?.[0] && (

@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+      },
       keyframes: {
         fadeIn: {
           "0%": { opacity: "0" },
@@ -27,13 +30,13 @@ export default {
           },
         },
         pulse: {
-            '0%, 100%': {
-              opacity: 1,
-            },
-            '50%': {
-              opacity: .5,
-            }
-          }
+          "0%, 100%": {
+            opacity: 1,
+          },
+          "50%": {
+            opacity: 0.5,
+          },
+        },
       },
       animation: {
         fadeIn: "fadeIn 0.6s ease-in-out forwards",
@@ -44,6 +47,7 @@ export default {
       colors: {
         primary: "#ff385c",
         faded: "#00000090",
+        whiteFade: "#FFFFFF90"
       },
     },
   },
