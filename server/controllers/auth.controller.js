@@ -18,6 +18,7 @@ class AuthController {
         username,
         email,
         password: await bcrypt.hash(password, salt),
+        avatar: "https://res.cloudinary.com/dh9q1rj0k/image/upload/v1720953282/newUser_kqwnbr.jpg"
       });
 
       if (!newUser) {
@@ -53,6 +54,7 @@ class AuthController {
           userId: user._id,
           username: user.username,
           email: user.email,
+          avatar: user.avatar
         };
         const token = jwt.sign(payload, SECRET, { expiresIn: "5h" });
 

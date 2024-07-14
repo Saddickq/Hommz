@@ -21,7 +21,6 @@ const UserSchema = Schema(
     },
     avatar: {
         type: String,
-        default: "https://res-console.cloudinary.com/dh9q1rj0k/thumbnails/v1/image/upload/v1720953282/bmV3VXNlcl9rcXduYnI"
     },
   },
   {

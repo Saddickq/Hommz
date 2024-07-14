@@ -48,8 +48,6 @@ class PlacesController {
         price,
       } = req.body;
 
-      console.log(photos)
-
       const user = await jwt.verify(token, SECRET);
       const place = await Place.findById(id);
 
