@@ -79,7 +79,7 @@ class PlacesController {
   }
   static async showAllPlaces(req, res) {
     try {
-      const places = await Place.find();
+      const places = await Place.find().populate('owner');
       return res.status(200).json(places);
     } catch (error) {
       return res.status(404).json(error.message);
@@ -88,7 +88,7 @@ class PlacesController {
   static async showPlace(req, res) {
     try {
       const { id } = req.params;
-      const place = await Place.findById(id);
+      const place = await Place.findById(id).populate('owner');
       return res.status(200).json(place);
     } catch (error) {
       return res.status(404).json(error.message);

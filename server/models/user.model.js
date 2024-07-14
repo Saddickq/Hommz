@@ -19,13 +19,16 @@ const UserSchema = Schema(
       required: true,
       minlength: [6, 'Password must be at least 6 characters long']
     },
-    avatar: { type: String },
+    avatar: {
+        type: String,
+        default: "https://res-console.cloudinary.com/dh9q1rj0k/thumbnails/v1/image/upload/v1720953282/bmV3VXNlcl9rcXduYnI"
+    },
   },
   {
     timestamps: true,
   }
 );
 
-const User = model("user", UserSchema);
+const User = model("User", UserSchema);
 
 export default User;

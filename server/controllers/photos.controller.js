@@ -14,7 +14,7 @@ class PhotosController {
       if (uploadedFiles.length > 0) {
         const imagesToUpload = uploadedFiles.map((image) => {
           return limit(async () => {
-            const result = await cloudinary.uploader.upload(image);
+            const result = await cloudinary.uploader.upload(image, { folder: 'Hommz' });
             fs.unlinkSync(image);
             return result.secure_url;
           });
