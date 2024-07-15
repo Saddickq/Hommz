@@ -16,7 +16,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: ["https://hommz.netlify.app", "http://localhost:5173"]
+    origin: ["https://hommz.netlify.app"]
   })
 );
 
