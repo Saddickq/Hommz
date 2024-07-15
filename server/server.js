@@ -13,14 +13,12 @@ import { dirname } from "path";
 
 const app = express();
 
-app.use(cors())
-
-// app.use(
-//   cors({
-//     credentials: true,
-//     origin: ["https://hommz.netlify.app"]
-//   })
-// );
+app.use(
+  cors({
+    credentials: true,
+    origin: ["https://hommz.netlify.app", "http://localhost:5173"]
+  })
+);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
