@@ -53,7 +53,7 @@ const router = createBrowserRouter([
 ])
 
 axios.defaults.baseURL = 'https://hommz.onrender.com'
-axios.defaults.withCredentials = true
+axios.defaults.withCredentials = false
 
 const App = () => {
   return (
