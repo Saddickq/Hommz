@@ -29,8 +29,8 @@ const Header = ({ setShowAuth }) => {
                         }
                     </div>
                 </div>
-                <div className="flex items-center gap-4 border shadow rounded-full p-1 cursor-pointer hover:shadow-md mt-2 md:mt-0 w-70">
-                    <input placeholder="Search " className="outline-none px-4" />
+                <div className="flex items-center gap-4 border shadow rounded-full p-1 cursor-pointer hover:shadow-md mt-2 md:mt-0">
+                    <input placeholder="Search " className="outline-none px-4 w-64 sm:w-auto" />
                     <button className="bg-primary rounded-full p-2 m-1 md:m-0 text-white">
                         <IoSearchSharp className="size-4 md:size-5" /> 
                     </button>

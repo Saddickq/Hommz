@@ -26,7 +26,7 @@ const AvailablePerks = ({ value, onChange }) => {
                             <label key={perk.name} className="border flex p-2 gap-2 rounded-xl items-center">
                                 <input type="checkbox" checked={value.some(selected => selected.name === perk.name)} onChange={handlePerks} name={perk.name} />
                                 <perk.svgUrl className="size-6 text-gray-600" />
-                                <span className='text-gray-500'>{perk.name}</span>
+                                <span className='text-sm sm:text-base text-gray-500'>{perk.name}</span>
                             </label>
                         )
                     })

@@ -2,7 +2,7 @@ const PlaceInfo = ({ place }) => {
   return (
     <div>
         <h3 className="border-t py-6 border-gray-300 text-lg sm:text-xl text-gray-800 font-semibold">Things to know</h3>
-        <div className="flex gap-16 sm:gap-32">
+        <div className="flex gap-4 justify-between">
             <div className="text-sm sm:text-base">
                 <h3 className="font-semibold text-gray-800 mb-2">What this place offers</h3>
                 <div>
