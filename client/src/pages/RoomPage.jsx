@@ -40,11 +40,11 @@ const RoomPage = () => {
                 <h2 className="text-xl md:text-2xl text-gray-800 py-6 font-semibold">{place.title}</h2>
                 <div className="flex gap-2 underline text-gray-700 font-semibold">
                     <FaMapLocationDot className="size-7 animate-bounce" />
-                    <a target={"_blank"} href={`https://maps.google.com/?q=${place.address}`}>{place.address}</a>
+                    <a target={"_blank"} className="text-sm" href={`https://maps.google.com/?q=${place.address}`}>{place.address}</a>
                 </div>
 
                 <PlaceGallery place={place} />
-                <h2 className="text-xl sm:text-2xl text-gray-800 font-semibold mt-4">Room in {place.address}</h2>
+                <h2 className="text-xl md:text-2xl text-gray-800 font-semibold mt-8">Room in {place.address}</h2>
                     
                 <div className="py-8 flex flex-col sm:flex-row gap-8">
                     <div className="border-t border-gray-300">

@@ -23,7 +23,7 @@ const HomePage = () => {
 	}, [])
     
 	return (
-		<div className="my-6 grid gap-4 md:gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+		<div className="my-6 grid gap-3 md:gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {isLoading ? (
                 Array.from({ length: 6 }).map((_, index) => (
                     <div className="cursor-pointer animate-pulse" key={index}>
@@ -40,9 +40,9 @@ const HomePage = () => {
                     <Link to={"/place/" + place._id} className="cursor-pointer" key={place._id}>
                         <div className="flex rounded-lg flex-col">
                             <img className="rounded-lg mb-2 object-cover h-44 sm:h-64" src={place.photos[0]} alt="Photo" />
-                            <h2 className="font-bold  text-sm sm:tex-l text-gray-900">{place.address}</h2>
-                            <h3 className="text-sm">Hosted by {place.owner.username}</h3>
-                            <h4 className="font-bold text-primary text-sm sm:tex-l">¢{place.price} Per night</h4>
+                            <h2 className="font-bold text-xs sm:tex-l text-gray-900">{place.address}</h2>
+                            <h3 className="text-xs sm:text-sm">Hosted by {place.owner.username}</h3>
+                            <h4 className="font-bold text-primary text-xs sm:tex-l">¢{place.price} Per night</h4>
                         </div>
                     </Link>
                 )))

@@ -21,7 +21,7 @@ const Header = ({ setShowAuth }) => {
                             ? 
                             <Link to="/account" className="flex items-center gap-1 bg-primary text-white rounded-full py-2 px-2 hover:shadow-md">
                                 <RxHamburgerMenu className="size-4 md:size-6" />
-                                <img className="size-4 md:size-8 rounded-full" src={user.avatar} />
+                                <img className="size-5 md:size-8 rounded-full" src={user.avatar} />
                                 <div className="text-sm md:text-base">{user.username.split(' ')?.[0]}</div>
                             </Link>
                             :
@@ -40,7 +40,7 @@ const Header = ({ setShowAuth }) => {
                         ? 
                         <Link to="/account" className="flex items-center gap-1 bg-primary text-white rounded-full p-2 hover:shadow-md">
                             <RxHamburgerMenu className="size-4 md:size-6" />
-                            <img className="size-4 md:size-8 rounded-full" src={user.avatar} />
+                            <img className="size-5 md:size-8 rounded-full" src={user.avatar} />
                             <div className="text-sm md:text-base">{user.username.split(' ')?.[0]}</div>
                         </Link>
                         :

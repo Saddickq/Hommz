@@ -22,10 +22,13 @@ const AccountsPage = () => {
   return (
     <div>
         <AccountNav />
+        <h2 className="text-center mt-12 mb-4 font-bold text-2xl">Your Account Info</h2>
         <div className="max-w-md mx-auto">
-            <h2 className="text-center mb-3 font-bold text-2xl">Your Account Info</h2>
-            <div className="text-xl mb-3">User name: <span className="text-gray-500">{user?.username}</span></div>
-            <div className="text-xl">User Email: <span className="text-gray-500">{user?.email}</span></div>
+            <div className="flex">
+                <img className="border mx-auto outline-primary outline rounded-full h-32" src={user.avatar} />
+            </div>
+            <div className="text-sm sm:text-xl my-3">User name: <span className="text-gray-500">{user?.username}</span></div>
+            <div className="text-sm sm:text-xl">User Email: <span className="text-gray-500">{user?.email}</span></div>
             <button onClick={logout} className="bg-primary w-full rounded-full py-2 mt-4 text-white">Logout</button>
         </div>
 
