@@ -6,9 +6,9 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-black.svg?logo=javascript)
 
 
-<div style="display: flex; justify-content: center; align-items: center; width: 100%; gap: 25px;">
-   <img style="width: 300px;" src="https://res.cloudinary.com/dh9q1rj0k/image/upload/v1721342993/Screenshot_from_2024-07-18_22-31-00_duqcue.png" alt="Screenshot 1">
-   <img style="width: 200px;" src="https://res.cloudinary.com/dh9q1rj0k/image/upload/v1721342993/Screenshot_from_2024-07-18_22-41-30_sjmsiz.png" alt="Screenshot 2">
+<div style="display: flex; justify-content: center; align-items: center; width: 100%; gap: 45px;">
+   <img style="width: 350px;" src="https://res.cloudinary.com/dh9q1rj0k/image/upload/v1721342993/Screenshot_from_2024-07-18_22-31-00_duqcue.png" alt="Screenshot 1">
+   <img style="width: 350px;" src="https://res.cloudinary.com/dh9q1rj0k/image/upload/v1721342993/Screenshot_from_2024-07-18_22-41-30_sjmsiz.png" alt="Screenshot 2">
 </div>
 
 # Hommz
